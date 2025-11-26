@@ -3,7 +3,6 @@
   "name": "storefront-remix-starter",
   "description": "",
   "license": "",
-  "type": "module",
   "scripts": {
     "build:cf": "cross-env CF_PAGES=1 remix build",
     "build:nf": "cross-env NETLIFY=1 remix build",
