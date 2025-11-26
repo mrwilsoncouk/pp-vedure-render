@@ -1,4 +1,4 @@
-import { createRoutesFromFolders } from '@remix-run/v1-route-convention';
+const { createRoutesFromFolders } = require('@remix-run/v1-route-convention');
 
 /**
  * @type {import('@remix-run/dev').AppConfig}
@@ -73,4 +73,4 @@ function selectConfig() {
   throw new Error(`Cannot select config`);
 }
 
-export default selectConfig();
+module.exports = selectConfig();
