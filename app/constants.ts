@@ -1,10 +1,21 @@
 export const APP_META_TITLE = 'Vendure Remix Storefront';
 export const APP_META_DESCRIPTION =
   'A headless commerce storefront starter kit built with Remix & Vendure';
+
+// We keep the demo URL around for reference, but we no longer fall back to it.
 export const DEMO_API_URL = 'https://readonlydemo.vendure.io/shop-api';
+
+// Fail fast if the environment variable is missing
+if (typeof process !== 'undefined' && !process.env.VENDURE_API_URL) {
+  throw new Error(
+    'Missing VENDURE_API_URL environment variable. Please set it in your frontend service on Render.'
+  );
+}
+
+// Use the environment variable directly
 export let API_URL =
   typeof process !== 'undefined'
-    ? process.env.VENDURE_API_URL ?? DEMO_API_URL
+    ? process.env.VENDURE_API_URL!
     : DEMO_API_URL;
 
 /**
