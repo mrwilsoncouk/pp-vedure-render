@@ -5,7 +5,6 @@ const { createRoutesFromFolders } = require('@remix-run/v1-route-convention');
  */
 const commonConfig = {
   appDirectory: 'app',
-  serverModuleFormat: 'esm',
   serverDependenciesToBundle: [
     'remix-i18next',
     '@remix-validated-form/with-zod',
@@ -26,6 +25,7 @@ const cloudflarePagesConfig = {
   server: './server-cloudflare-pages.js',
   ignoredRouteFiles: ['**/.*'],
   serverMinify: true,
+  serverModuleFormat: 'esm',
   ...commonConfig,
 };
 
@@ -36,6 +36,7 @@ const netlifyConfig = {
   serverBuildTarget: 'netlify',
   server: './server-netlify.js',
   ignoredRouteFiles: ['**/.*'],
+  serverModuleFormat: 'esm',
   ...commonConfig,
 };
 
@@ -59,6 +60,7 @@ const buildConfig = {
   publicPath: '/build/',
   serverBuildDirectory: 'build',
   ignoredRouteFiles: ['.*'],
+  serverModuleFormat: 'cjs', // <-- FIX applied here
   ...commonConfig,
 };
 
