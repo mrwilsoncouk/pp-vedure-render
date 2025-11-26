@@ -28,6 +28,7 @@ const cloudflarePagesConfig = {
   serverMinify: true,
   ...commonConfig,
 };
+
 /**
  * @type {import('@remix-run/dev').AppConfig}
  */
@@ -37,6 +38,7 @@ const netlifyConfig = {
   ignoredRouteFiles: ['**/.*'],
   ...commonConfig,
 };
+
 /**
  * @type {import('@remix-run/dev').AppConfig}
  */
@@ -61,8 +63,9 @@ const buildConfig = {
 };
 
 function selectConfig() {
-  if (!['development', 'production'].includes(process.env.NODE_ENV))
+  if (!['development', 'production'].includes(process.env.NODE_ENV)) {
     throw new Error(`Unknown NODE_ENV: ${process.env.NODE_ENV}`);
+  }
   if (process.env.CF_PAGES) return cloudflarePagesConfig;
   if (process.env.NETLIFY) return netlifyConfig;
   if (process.env.NODE_ENV === 'development') return devConfig;
