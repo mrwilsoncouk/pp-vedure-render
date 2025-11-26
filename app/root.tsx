@@ -13,7 +13,7 @@ import {
   useRouteError,
   MetaFunction,
 } from '@remix-run/react';
-import stylesheet from './tailwind.css';
+import stylesheet from './styles/tailwind.css';
 import { Header } from './components/header/Header';
 import {
   DataFunctionArgs,
